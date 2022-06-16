@@ -14,12 +14,43 @@
 //se si il numero va nella lista dei numeri indovinati che gli saranno comunicati alla fine
 //altrimenti non viene considerato
 
+//Array vuoto dove verranno inseriti i 5 numeri random iniziali
 let initialNumbers = [];
 
+//Creazione dei 5 numeri random
 for(let i = 0; i < 5; i++) {
 
     randomNumbers =  Math.floor(Math.random() * 10) + 1;
-    initialNumbers.push(randomNumbers);
+
+    //che inserisco nell'array senza ripetizioni
+    if (!initialNumbers.includes(randomNumbers)) {
+
+        initialNumbers.push(randomNumbers);
+    }
+    
 }
-alert('Memorizza questi numeri: ' + initialNumbers)
+
+//Alert per l'utente: numeri da memorizzare
+alert('Memorizza questi numeri: ' + initialNumbers);
+
+//Array vuoto per i numeri inseriti dall'utente
+let userNumbersArray = [];
+
+//Al click sull'alert, dopo 30 secondi (test con 3 secondi)
+//Chiedi con cinque prompt di inserire i numeri memorizzati
+for(let i = 0; i < 5; i++) {
+
+    setTimeout(function() {
+
+        userNumbers = prompt('Scrivi i numeri che hai visualizzato uno alla volta: ');
+    
+    }, 3000);
+
+    //che inserisco nell'array senza ripetizioni
+    if (!userNumbersArray.includes(userNumbers)) {
+
+        userNumbersArray.push(userNumbers);
+    }
+
+}
 
