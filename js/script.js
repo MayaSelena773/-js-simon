@@ -18,7 +18,7 @@
 let initialNumbers = [];
 
 //Creazione dei 5 numeri random
-for(let i = 0; i < 5; i++) {
+for(let i = 0; i <= 5; i++) {
 
     randomNumbers =  Math.floor(Math.random() * 10) + 1;
 
@@ -32,6 +32,7 @@ for(let i = 0; i < 5; i++) {
 
 //Alert per l'utente: numeri da memorizzare
 alert('Memorizza questi numeri: ' + initialNumbers);
+console.log(initialNumbers);
 
 //Array vuoto per i numeri inseriti dall'utente
 let userNumbersArray = [];
@@ -40,19 +41,23 @@ let userNumbersArray = [];
 
     setTimeout(function() {
 
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i <= 5; i++) {
 
             //Chiedi con cinque prompt di inserire i numeri memorizzati
-            userNumbers = prompt('Scrivi i numeri che hai visualizzato uno alla volta: ');
-
-            //che inserisco nell'array senza ripetizioni
-            if (!userNumbersArray.includes(userNumbers)) {
+            const userNumbers = prompt('Scrivi i numeri che hai visualizzato uno alla volta: ');
+            console.log(userNumbers);
+            //che inserisco nell'array se sono quelli giusti e senza ripetizioni
+            if (initialNumbers.includes(userNumbers) && !userNumbersArray.includes(userNumbers)) {
             
                 userNumbersArray.push(userNumbers);
+                console.log(userNumbersArray);
+                
             }
 
         }
     
+        alert(`Fine del gioco! Il tuo punteggio è: ${userNumbersArray.length}. Numeri indovinati: ${userNumbersArray}`);
+
     }, 3000);
 
 
