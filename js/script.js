@@ -37,20 +37,23 @@ alert('Memorizza questi numeri: ' + initialNumbers);
 let userNumbersArray = [];
 
 //Al click sull'alert, dopo 30 secondi (test con 3 secondi)
-//Chiedi con cinque prompt di inserire i numeri memorizzati
-for(let i = 0; i < 5; i++) {
 
     setTimeout(function() {
 
-        userNumbers = prompt('Scrivi i numeri che hai visualizzato uno alla volta: ');
+        for(let i = 0; i < 5; i++) {
+
+            //Chiedi con cinque prompt di inserire i numeri memorizzati
+            userNumbers = prompt('Scrivi i numeri che hai visualizzato uno alla volta: ');
+
+            //che inserisco nell'array senza ripetizioni
+            if (!userNumbersArray.includes(userNumbers)) {
+            
+                userNumbersArray.push(userNumbers);
+            }
+
+        }
     
     }, 3000);
 
-    //che inserisco nell'array senza ripetizioni
-    if (!userNumbersArray.includes(userNumbers)) {
 
-        userNumbersArray.push(userNumbers);
-    }
-
-}
 
